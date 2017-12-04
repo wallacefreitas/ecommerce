@@ -1,0 +1,32 @@
+{
+  "name": "ecommerce",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "history": "^4.7.2",
+    "material-ui": "^0.19.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.2.0",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-tap-event-plugin": "^3.0.2",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-form": "^6.7.0",
+    "redux-multi": "^0.1.12",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "throttle-debounce": "^1.0.1",
+    "toastr": "^2.1.2"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
