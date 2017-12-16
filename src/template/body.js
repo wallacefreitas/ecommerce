@@ -5,10 +5,10 @@ const style = {
 }
 
 const Body = (props) => {
-    console.log(props); 
+
 
     return  (
-    <div style={style} adicionarProduto={props.adicionarProduto}>
+    <div style={style} >
         {props.children}
     </div>
 )};

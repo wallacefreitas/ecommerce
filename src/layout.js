@@ -3,7 +3,7 @@ import Header from './template/header.js'
 import Body from './template/body.js'
 import Footer from './template/footer.js'
 // import { consultarCarrinho } from './template/behaviour'
-import CarrinhoCompra from './classes/CarrinhoCompra';
+import CarrinhoCompra from './components/carrinhoCompras/index';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
@@ -21,7 +21,12 @@ class Layout extends Component {
 
         return (
             <div>
-                teste
+                <Header/>
+                <CarrinhoCompra/>
+                <Body>
+                    {this.props.children}
+                </Body>
+                <Footer/>
             </div>
         )
     }
