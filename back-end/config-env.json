@@ -1,0 +1,22 @@
+{
+  "database": {
+    "nome" : "db_itudo",
+    "host" : "localhost",
+    "usuario" : "root",
+    "senha": "",
+    "porta": 3306,
+    "dialect": "mysql",
+    "log": false,
+    "options": {
+      "underscored": false,
+      "freezeTableName": false,
+      "syncOnAssociation": true,
+      "charset": "utf8mb4",
+      "collate": "utf8mb4_general_ci",
+      "timestamps": false
+    }
+  },
+  "server": {
+    "porta": 3000
+  }
+}
