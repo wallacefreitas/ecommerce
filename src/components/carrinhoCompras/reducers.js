@@ -14,6 +14,14 @@ export default (state = INITIAL_STATE, action) => {
             localStorage.setItem('carrinhoCompra', JSON.stringify(data))
             return data;
         break;
+
+        case 'CARRINHO_REMOVER':
+            let _data = { ...state };
+            _data.items.splice(action.payload,1)
+            localStorage.setItem('carrinhoCompra', JSON.stringify(_data));
+            return _data;
+
+        break;
         default:
             return state;
     }

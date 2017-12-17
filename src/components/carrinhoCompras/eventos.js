@@ -1,8 +1,9 @@
 export function editar(){
-    alert("Editar!!")
+
 }
 
 
-export function excluir(id){
-    alert(`Excluir!!! ${id}`);
+export function excluir(props, idx){
+    props.remover(idx);
+    props.get();
 }

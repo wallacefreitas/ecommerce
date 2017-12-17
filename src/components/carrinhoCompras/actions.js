@@ -11,3 +11,10 @@ export function add(item){
         payload: item
     }
 }
+
+export function remover(idx){
+    return { 
+        type: "CARRINHO_REMOVER",
+        payload: idx
+    }
+}

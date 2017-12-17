@@ -7,6 +7,10 @@ import { yellow400 } from 'material-ui/styles/colors';
 import { formatMoney } from '../util/helper';
 import ShoppinCartIcon from 'material-ui/svg-icons/action/shopping-cart';
 import RaisedButton from 'material-ui/RaisedButton';
+import { bindActionCreators } from 'redux';
+import { add , get } from '../components/carrinhoCompras/actions'
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 let style = {
     cardProdutos: {
@@ -53,8 +57,12 @@ class Produtos extends Component {
         });
     }
 
-    abrirDetalhesProduto(produto_id){
-        this.props.history.push('/produto/'+produto_id);
+    abrirDetalhesProduto(produto){
+        //this.props.history.push('/produto/'+produto_id);
+
+        this.props.add(produto)
+        this.props.get();
+
     }
 
     handlerMouseEnter(){
@@ -77,8 +85,8 @@ class Produtos extends Component {
                                     primaryText={produto.nome} 
                                     secondaryText={'R$ '+formatMoney(produto.preco)}  
                                     leftAvatar={<Avatar src={produto.thumbnail} size={50} />}
-                                    rightIcon={ <RaisedButton style={{height: "40px"}} icon={<ShoppinCartIcon style={{marginTop: '8px'}} />} secondary={true} onClick={() => alert(1)}/>}
-                                    onClick={() => main.abrirDetalhesProduto(produto.id)}
+                                    rightIcon={<RaisedButton style={{ height: "40px" }} icon={<ShoppinCartIcon style={{ marginTop: '8px' }} />} secondary={true} onClick={() => main.abrirDetalhesProduto(produto)}/>}
+                                    onClick={false}
                                     style={{backgroundColor: (idx % 2 == 0 ? "#F5F5F5" : "#B2DFDB")}}
                                 />
                             </div>
@@ -89,5 +97,15 @@ class Produtos extends Component {
         );
     }
 }
+const mapStateToProps = (state)=>{
+    return {
+        items: state.carrinhoCompras.items
+    }
+}
 
-export default Produtos;
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    add,
+    get 
+},dispatch)
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Produtos));
