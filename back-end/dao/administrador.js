@@ -4,7 +4,6 @@ const AdministradorModel = require('../model/administrador');
 class AdministradorDAO 
 {
   autenticar(req, res, next){
-	console.log(req.body);
     AdministradorModel.findOne({
       	where: {
         	email: req.body.username,

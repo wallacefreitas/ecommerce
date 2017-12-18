@@ -7,20 +7,10 @@ import Badge from 'material-ui/Badge';
 import RaisedButton from 'material-ui/RaisedButton'
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 
-/*
-const Notificacao = (<div style={{marginTop: '-14px'}}>
-	<Badge
-		badgeContent={0}
-		secondary={true}
-		badgeStyle={{top: 16, right: 12}}
-	>
-		<IconButton tooltip="Notifications">
-		<ShoppinCartIcon />
-		</IconButton>
-	</Badge>
-	</div>
-);
-*/
+import { logout } from '../login/actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class Header extends React.Component{
 	constructor(props){
@@ -36,6 +26,12 @@ class Header extends React.Component{
 				<AppBar
 					title="ITudo - App"
 					iconClassNameRight="muidocs-icon-navigation-expand-more"
+					iconElementRight={
+						<RaisedButton 
+							label="Logout"
+							onClick={this.props.logout}
+						/>
+					}
 				>
 					{/*
 					<RaisedButton label="Teste" onClick={
@@ -59,4 +55,10 @@ class Header extends React.Component{
 
 }
 
-export default Header;
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+	{
+		logout
+	}
+,dispatch);
+
+export default withRouter(connect(null, mapDispatchToProps)(Header));

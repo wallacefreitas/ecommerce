@@ -7,7 +7,8 @@ import CarrinhoCompra from './components/carrinhoCompras/index';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
-
+import { set } from './system/sessao/actions'
+import Login from './login/index'
 
 class Layout extends Component {
     constructor(props){
@@ -15,10 +16,21 @@ class Layout extends Component {
     }
     
     componentDidMount(){
-        
+       /* console.log(this.props.sessao)
+        let main = this;
+        setTimeout(function(){
+            main.props.set({
+                id: 1,
+                nome:'Aylon Muramatsu',
+            })
+        }, 10000)*/
     }
     render(){
-
+        if(this.props.sessao == null) 
+            return (
+                <Login/>
+            )
+        else 
         return (
             <div>
                 <Header/>
@@ -35,13 +47,13 @@ class Layout extends Component {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(
     {
-
-    }
+        set 
+    },dispatch
 ) 
 
 const mapStateToProps = (state) => (
     {
-
+        sessao: state.sessao
     }
 )
 
